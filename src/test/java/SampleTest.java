@@ -54,11 +54,12 @@ public class SampleTest {
         webDriver.findElement(By.id("input-comment-consultation")).sendKeys("No Comment");
         System.out.println("Mark");
         webDriver.findElement(By.className("checkbox_checkmark")).click();
+        System.out.println("End");
 
      //   webDriver.findElements(By.xpath("\\input[@checked='true']");
       //  System.out.println(option.getText());
        // webDriver.findElement(By.linkText("Front-end Basic"));
-        Thread.sleep(10000);
+        Thread.sleep(1000);
 
 //        System.out.println("Enter email");
   //      webDriver.findElement(By.id("signCourses")).findElement(By.id("modal_email")).click();
