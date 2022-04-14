@@ -50,6 +50,8 @@ public class SampleTest {
         webDriver.findElement(By.id("input-email-consultation")).sendKeys("chippi@mail.ru");
         System.out.println("Enter number");
         webDriver.findElement(By.id("input-tel-consultation")).sendKeys("501234567");
+        System.out.println("Choice course");
+        webDriver.findElement(By.id("container-input-course-consultation")).click();
         System.out.println("Enter comment");
         webDriver.findElement(By.id("input-comment-consultation")).sendKeys("No Comment");
         System.out.println("Mark");
