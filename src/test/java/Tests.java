@@ -29,41 +29,35 @@ public class Tests {
     }
 
     @Test
-//    public void Test_1() {
-//        System.out.println("Check URL");
-//        System.out.println(webDriver.getCurrentUrl());
-//        assertEquals(URL, webDriver.getCurrentUrl());
-//        System.out.println(webDriver.getTitle());
-//        System.out.println("Done test URL");
-//        System.out.println("==============================");
-//    }
-//
-//@Test
     public void Fill_Form() throws InterruptedException {
-        System.out.println("Нажимаем на кнопку");
+        Integer hash = webDriver.hashCode();                //два равных объекта должны иметь одинаковое значение hashCode()
+        String title = webDriver.getTitle();
+        System.out.println("Сайт для тестов: " + webDriver.getCurrentUrl());
+        assertEquals(URL, webDriver.getCurrentUrl());
+        System.out.println("Количества символов в сайте: " + URL.length());
+        System.out.println("Тест Заговолка: " + webDriver.getTitle());
+        System.out.println("==============================");
+        System.out.println("Нажимаем на кнопку консултация");
         webDriver.findElement(By.id("btn-consultation-hero")).click();
         webDriver.manage().window().maximize();
-        System.out.println("Enter name");
+        System.out.println("Вводим имя");
         webDriver.findElement(By.id("form-consultation")).findElement(By.id("input-name-consultation")).sendKeys("Алманбек");
-        System.out.println("Enter mail");
+        System.out.println("Вводим mail");
         webDriver.findElement(By.id("input-email-consultation")).sendKeys("chippi@mail.ru");
-        System.out.println("Enter number");
+        System.out.println("Вводим номер");
         webDriver.findElement(By.id("input-tel-consultation")).sendKeys("501234567");
 
-        System.out.println("Choice course");
-        webDriver.findElement(By.xpath("//button[@id='listbox-btn-input-course-consultation']/span")).click();
-        webDriver.findElement(By.xpath("//div[@id='container-input-course-consultation']/div/ul/li[3]")).click();
-//        WebElement element = webDriver.findElement(By.xpath("//div[@id='container-input-course-consultation']/div/ul/li[4]"));
-//        element.findElement(By.name("Front-end Pro")).getText().contains("Front-end Pro");
-//        System.out.println(element);
+        //Выбор курс через ListBox
+        System.out.println("Выбираем курс");
+        WebElement element = webDriver.findElement(By.xpath("//button[@id='listbox-btn-input-course-consultation']/span"));
+        element.click();
+        element.findElement(By.xpath("//div[@id='container-input-course-consultation']/div/ul/li[2]")).click();
 
-        System.out.println("Enter comment");
-        webDriver.findElement(By.id("input-comment-consultation")).sendKeys("No Comment");
-        System.out.println("Mark");
+        System.out.println("Выбранный курс: "+element.getText());
+        System.out.println("Вводим коментарий");
+        webDriver.findElement(By.id("input-comment-consultation")).sendKeys("Добавил No Comment");
         webDriver.findElement(By.className("checkbox_checkmark")).click();
-        System.out.println("End");
-        Thread.sleep(10000);
-
-
+        System.out.println("============================================");
+        Thread.sleep(1000);
     }
 }
